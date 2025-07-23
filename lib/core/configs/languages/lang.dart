@@ -19,6 +19,8 @@ class Language extends Translations {
       'yes': 'Yes',
       'no': 'No',
       'name': 'Name',
+      'no_yet': 'No @value yet',
+      'posts': 'Posts',
     },
     'id': {
       'explore': 'Jelajahi',
@@ -36,6 +38,8 @@ class Language extends Translations {
       'yes': 'Ya',
       'no': 'Tidak',
       'name': 'Nama',
+      'no_yet': 'Belum ada @value',
+      'posts': 'Postingan',
     },
   };
 }
