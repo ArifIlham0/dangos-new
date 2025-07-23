@@ -38,26 +38,36 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+      transition: !GetPlatform.isIOS ? Transition.rightToLeft : null,
+      transitionDuration: !GetPlatform.isIOS ? const Duration(milliseconds: 100) : null,
     ),
     GetPage(
       name: _Paths.MAIN,
       page: () => const MainView(),
       binding: MainBinding(),
+      transition: !GetPlatform.isIOS ? Transition.rightToLeft : null,
+      transitionDuration: !GetPlatform.isIOS ? const Duration(milliseconds: 100) : null,
     ),
     GetPage(
       name: _Paths.MY_POST,
       page: () => const MyPostView(),
       binding: MyPostBinding(),
+      transition: !GetPlatform.isIOS ? Transition.rightToLeft : null,
+      transitionDuration: !GetPlatform.isIOS ? const Duration(milliseconds: 100) : null,
     ),
     GetPage(
       name: _Paths.EDIT_PROFILE,
       page: () => const EditProfileView(),
       binding: EditProfileBinding(),
+      transition: !GetPlatform.isIOS ? Transition.rightToLeft : null,
+      transitionDuration: !GetPlatform.isIOS ? const Duration(milliseconds: 100) : null,
     ),
     GetPage(
       name: _Paths.DETAIL_POST,
       page: () => const DetailPostView(),
       binding: DetailPostBinding(),
+      transition: !GetPlatform.isIOS ? Transition.rightToLeft : null,
+      transitionDuration: !GetPlatform.isIOS ? const Duration(milliseconds: 100) : null,
     ),
   ];
 }
