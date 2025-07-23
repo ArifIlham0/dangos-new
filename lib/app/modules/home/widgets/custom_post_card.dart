@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-InkWell customPostCard(
+Widget customPostCard(
   DatumPost data, 
   List<App> apps, {
     required VoidCallback onTapDetail, 

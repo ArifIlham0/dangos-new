@@ -1,6 +1,5 @@
-import 'package:dangos/app/modules/edit_profile/bindings/edit_profile_binding.dart';
 import 'package:dangos/app/modules/home/widgets/custom_post_card.dart';
-import 'package:dangos/app/modules/view_export.dart';
+import 'package:dangos/app/routes/app_pages.dart';
 import 'package:dangos/common/common_export.dart';
 import 'package:dangos/core/core_export.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,9 +39,7 @@ class HomeView extends GetView<HomeController> {
                   title: "explore".tr,
                   actionIcon: SvgPicture.asset(AppIcons.person),
                   onTapLeading: () {},
-                  onTapAction: () {
-                    customNavigation(() => EditProfileView(), bindings: EditProfileBinding());
-                  },
+                  onTapAction: () => Get.toNamed(Routes.EDIT_PROFILE),
                 ),
               ];
             },
@@ -67,7 +64,7 @@ class HomeView extends GetView<HomeController> {
                     if (controller.listPosts.isEmpty && !controller.globalController.isLoading.value) {
                       return SliverList(
                         delegate: SliverChildListDelegate([
-                          CustomNoData()
+                          CustomNoData(title: "no_yet".trParams({"value": "posts".tr})),
                         ]),
                       );
                     } else {
@@ -81,7 +78,7 @@ class HomeView extends GetView<HomeController> {
                             return customPostCard(
                               data,
                               apps,
-                              onTapDetail: () => customNavigation(() => DetailPostView()),
+                              onTapDetail: () => Get.toNamed(Routes.DETAIL_POST),
                               onTapLike: () => controller.toggleLike(data.id ?? 0),
                             );
                           },

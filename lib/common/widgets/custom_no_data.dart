@@ -5,9 +5,10 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class CustomNoData extends StatelessWidget {
-  const CustomNoData({super.key, this.height});
+  const CustomNoData({super.key, this.height, this.title});
 
   final double? height;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CustomNoData extends StatelessWidget {
       children: [
         SizedBox(height: height ?? Get.height * 0.25),
         Lottie.asset("assets/lotties/no_data.json"),
-        Text("No Data Available", style: textStyles(15, bgBlack, semiBold)),
+        Text(title ?? "no_yet".trParams({"value": "data"}), style: textStyles(15, bgBlack, semiBold)),
       ],
     );
   }

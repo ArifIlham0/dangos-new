@@ -18,10 +18,7 @@ class EditProfileView extends GetView<EditProfileController> {
         backgroundColor: bgWhite,
         body: Stack(
           children: [
-            Image.asset(AppImages.appBarBackground, 
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+            CustomAppBarBackground(),
             RefreshIndicator(
               backgroundColor: bgWhite,
               color: blue,
@@ -196,7 +193,7 @@ class EditProfileView extends GetView<EditProfileController> {
                                   ),
                                 ),
                                 child: Obx(() {
-                                  if (controller.profileData.value.data != null) {
+                                  if (controller.profileData.value.data?.comments?.isNotEmpty == true) {
                                     return Column(
                                       children: List.generate(
                                         controller.profileData.value.data?.comments?.length ?? 0, (index) {
@@ -210,8 +207,14 @@ class EditProfileView extends GetView<EditProfileController> {
                                         },
                                       ),
                                     );
+                                  } else if (!controller.globalController.isLoading.value
+                                      && controller.profileData.value.data?.comments?.isEmpty == true) {
+                                    return CustomNoData(
+                                      height: Get.height * 0.1,
+                                      title: "no_yet".trParams({"value": "comments".tr}),
+                                    );
                                   } else {
-                                    return CustomNoData(height: Get.height * 0.1);
+                                    return const SizedBox.shrink();
                                   }
                                 }),
                               ),
@@ -268,5 +271,3 @@ class EditProfileView extends GetView<EditProfileController> {
     );
   }
 }
-
-

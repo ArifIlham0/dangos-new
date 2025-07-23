@@ -31,7 +31,6 @@ class MainAppBar extends StatelessWidget {
         floating: true,
         scrolledUnderElevation: 0,
         pinned: pinnedAppBar.value,
-        actionsPadding: EdgeInsets.only(right: 5.w),
         leadingWidth: 60.w,
         leading: Row(
           children: [
